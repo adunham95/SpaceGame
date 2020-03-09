@@ -18,15 +18,8 @@ function Nav() {
     return (
         <nav className="nav flex">
             <ul>
-                <li>
-                    <Link to="/">Captains Log</Link>
-                </li>
-                <li>
-                    <Link to="/missionControl">Mission Control</Link>
-                </li>
-                <li>
-                    <Link to="/hab">Hab</Link>
-                </li>
+                <li><Link to="/">Captains Log</Link></li>
+                <li><Link to="/hab">Hab</Link></li>
             </ul>
       </nav>
     )

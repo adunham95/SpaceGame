@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "./PageStyles/hab.scss";
 import {AspectRatio} from "../Components/index";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 let roomsDefault = [
     {
@@ -40,9 +40,7 @@ localStorage.setItem("hab", JSON.stringify(roomsDefault));
 
 function Hab() {
 
-
     const [rooms, setRooms] = useState(roomsDefault)
-
 
   return (
     <div className="page hab">
@@ -51,7 +49,7 @@ function Hab() {
         <div className="roomsContainer">
             {
                 rooms.map(r => {
-                return <Link to={`hab/${r.id}`} className={`room ${r.type} width-${r.length}`}>
+                return <Link to={`hab/${r.type}/${r.id}`} className={`room ${r.type} width-${r.length}`}>
                     <AspectRatio
                         ratio={`${r.length}x1`}
                         className={r.type}
@@ -65,5 +63,29 @@ function Hab() {
   );
 }
 
+function HabRoom(){
+    const roomDefault = {
+        id: "0001",
+        title: "Mission Control", 
+        type: "missionControl",
+        length: 2
+    };
+
+    const roomActions = [
+        {type: "missionControl", action: "Test"}
+    ]
+
+    let {roomid} = useParams();
+    const [room, setRoom] = useState(roomDefault)
+
+
+    return (
+        <div className={`page hab ${room.type}`}>
+            <h1>Hab Room id:{roomid}</h1>
+        </div>
+      );
+}
+
 
 export default Hab;
+export {HabRoom};

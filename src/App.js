@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, useLocation, Switch} from "react-router
 import CaptainsLog from './Pages/CaptainsLog';
 import {ScrollToTop, Header, Nav} from "./Components/index"
 import MissionControl from './Pages/MIssionControl';
-import Hab from './Pages/Hab';
+import Hab, {HabRoom} from './Pages/Hab';
 
 function App() {
   return (
@@ -28,9 +28,11 @@ function ModalSwitch(){
   return (
     <div>
       <Switch location={background || location}>
-        <Route exact path="/" children={<CaptainsLog />} />
-        <Route exact path="/missionControl" children={<MissionControl />} />
+        <Route exact path="/" children={<CaptainsLog/>} />
+        
         <Route exact path="/hab" children={<Hab />} />
+        <Route path="/hab/missionControl/:roomID" children={<MissionControl/>} />
+        <Route path="/hab/type/:roomID" children={<HabRoom />} />
       </Switch>
 
       {/* Show the modal when a background page is set */}
