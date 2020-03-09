@@ -1,22 +1,7 @@
 $headerHeight: 80px;
-body{
-  --primary: #245be9;
-  --primaryDark: #173582;
-  --secondary: #22ff98;
-  --secondaryDark: #179356;
-  --background: #e6e5e5;
-  --surface: #787878;
-  --modal: #fff;
-  --error: #b00020;
-  --text-onPrimary:#fff;
-  --text-onSecondary: rgba(0, 0, 0, 0.95);
-  --text-onBackground: #000;
-  --text-onSurface: #fdfdfd;
-  --text-onModal: #000;
-  --text-onError: #fff;
-  --onHover: rgb(82, 82, 82);
-}
-
+@import "Styles/reset";
+@import "Styles/vars";
+@import "Styles/modal";
 
 .dark-theme{
   --primary: #245be9;
@@ -38,39 +23,7 @@ body{
 
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background: var(--background);
+  color: var(--text-onBackground);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

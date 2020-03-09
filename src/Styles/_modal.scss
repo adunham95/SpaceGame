@@ -1,0 +1,10 @@
+.modal {
+    position: absolute;
+    background: var(--modal);
+    color: var(--text-onModal);
+    top: 25px;
+    left: 10%;
+    padding: 15px;
+    border: 2px solid #444;
+    width: calc(100% - 20% - 30px);
+  }

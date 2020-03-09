@@ -2,13 +2,13 @@ import React from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Route, useLocation, Switch} from "react-router-dom";
 import CaptainsLog from './Pages/CaptainsLog';
-import {ScrollToTop} from "./Components/index"
+import {ScrollToTop, Header} from "./Components/index"
 
 function App() {
   return (
     <div className="App">
       <Router>
-        {/* <Header/> */}
+        <Header/>
         <ScrollToTop/>
         <ModalSwitch/>
         {/* <Nav /> */}
