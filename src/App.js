@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
 import { BrowserRouter as Router, Route, useLocation, Switch} from "react-router-dom";
+import CaptainsLog from './Pages/CaptainsLog';
+import {ScrollToTop} from "./Components/index"
 
 function App() {
   return (
     <div className="App">
       <Router>
         {/* <Header/> */}
-        {/* <ScrollToTop/> */}
+        <ScrollToTop/>
         <ModalSwitch/>
         {/* <Nav /> */}
       </Router>
@@ -25,7 +26,7 @@ function ModalSwitch(){
   return (
     <div>
       <Switch location={background || location}>
-        {/* <Route exact path="/" children={<MainPage />} /> */}
+        <Route exact path="/" children={<CaptainsLog />} />
         {/* <Route path="/new/:type" children={<NewGame />} /> */}
       </Switch>
 
