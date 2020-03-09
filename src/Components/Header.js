@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import {Link} from "react-router-dom"
 
 function Header() {
   return (
@@ -9,4 +9,19 @@ function Header() {
   )
 }
 
-export default Header;
+function Nav() {
+    return (
+        <nav>
+            <ul>
+                <li>
+                    <Link to="/">Captains Log</Link>
+                </li>
+                <li>
+                    <Link to="/missionControl">Mission Control</Link>
+                </li>
+            </ul>
+      </nav>
+    )
+  }
+
+export {Header, Nav};

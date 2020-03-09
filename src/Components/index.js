@@ -1,4 +1,4 @@
 import ScrollToTop from "./ScrollToTop";
-import Header from "./Header";
+import {Header, Nav} from "./Header";
 
-export {ScrollToTop, Header}
+export {ScrollToTop, Header, Nav}

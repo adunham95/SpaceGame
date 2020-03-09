@@ -2,16 +2,17 @@ import React from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Route, useLocation, Switch} from "react-router-dom";
 import CaptainsLog from './Pages/CaptainsLog';
-import {ScrollToTop, Header} from "./Components/index"
+import {ScrollToTop, Header, Nav} from "./Components/index"
+import MissionControl from './Pages/MIssionControl';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Header/>
+        <Nav />
         <ScrollToTop/>
         <ModalSwitch/>
-        {/* <Nav /> */}
       </Router>
     <div id="modal-root"></div>
     </div>
@@ -27,7 +28,7 @@ function ModalSwitch(){
     <div>
       <Switch location={background || location}>
         <Route exact path="/" children={<CaptainsLog />} />
-        {/* <Route path="/new/:type" children={<NewGame />} /> */}
+        <Route exact path="/missionControl" children={<MissionControl />} />
       </Switch>
 
       {/* Show the modal when a background page is set */}
