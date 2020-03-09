@@ -1,3 +1,5 @@
+import {habRooms} from "../Data/HabRooms"
+
 export function getHabRooms(){
     return JSON.parse(localStorage.getItem("hab"));
 }
@@ -15,6 +17,10 @@ export function getRoomById(id){
 export function getRoomsByType(type){
     let allRooms = getHabRooms();
     console.log(allRooms);
+}
+
+export function getHabRoomTypes(){
+    return habRooms;
 }
 
 export function createRoom({id, type, title, length=1}={}){
