@@ -24,6 +24,9 @@ function Nav() {
                 <li>
                     <Link to="/missionControl">Mission Control</Link>
                 </li>
+                <li>
+                    <Link to="/hab">Hab</Link>
+                </li>
             </ul>
       </nav>
     )

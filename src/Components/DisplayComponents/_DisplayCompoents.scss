@@ -1,0 +1,27 @@
+.ratioContainer{
+    &[data-ratio="1x1"]{
+        width: 100%;
+        padding-top: 100%;
+        position: relative;
+    }
+    &[data-ratio="2x1"]{
+        width: 100%;
+        padding-top: 50%;
+        position: relative;
+    }
+    &[data-ratio="3x1"]{
+        width: 100%;
+        padding-top: calc(100% /3);
+        position: relative;
+    }
+    &[data-ratio="4x1"]{
+        width: 100%;
+        padding-top: calc(100% /4);
+        position: relative;
+    }
+    &-inner{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
