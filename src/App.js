@@ -3,8 +3,8 @@ import './App.scss';
 import { BrowserRouter as Router, Route, useLocation, Switch} from "react-router-dom";
 import CaptainsLog from './Pages/CaptainsLog';
 import {ScrollToTop, Header, Nav} from "./Components/index"
-import MissionControl from './Pages/MIssionControl';
-import Hab, {HabRoom} from './Pages/Hab';
+import MissionControl from './Pages/HabRooms/MissionControl';
+import Hab, {DefaultHabRoom} from './Pages/Hab';
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function ModalSwitch(){
         
         <Route exact path="/hab" children={<Hab />} />
         <Route path="/hab/missionControl/:roomID" children={<MissionControl/>} />
-        <Route path="/hab/type/:roomID" children={<HabRoom />} />
+        <Route path="/hab/type/:roomID" children={<DefaultHabRoom />} />
       </Switch>
 
       {/* Show the modal when a background page is set */}

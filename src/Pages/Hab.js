@@ -1,46 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import "./PageStyles/hab.scss";
 import {AspectRatio} from "../Components/index";
 import {Link, useParams} from "react-router-dom";
-
-let roomsDefault = [
-    {
-        id: "0001",
-        title: "Mission Control", 
-        type: "missionControl",
-        length: 2
-    },
-    {
-        id: "0002",
-        title: "Garden", 
-        type: "garden",
-        length: 1
-    },
-    {
-        id: "0002",
-        title: "Bedroom", 
-        type: "bed",
-        length: 1
-    },
-    {
-        id: "0003",
-        title: "Garage", 
-        type: "garage",
-        length: 1
-    },
-    {
-        id: "0004",
-        title: "Communication", 
-        type: "comm",
-        length: 2
-    },
-]
-
-localStorage.setItem("hab", JSON.stringify(roomsDefault));
+import {getHabRooms, getRoomById} from "../Functions/habDB"
 
 function Hab() {
+    const [rooms, setRooms] = useState([]);
 
-    const [rooms, setRooms] = useState(roomsDefault)
+    useEffect(() => {
+        console.log("Hab rooms", getHabRooms())
+        setRooms(getHabRooms());
+    },[])
 
   return (
     <div className="page hab">
@@ -49,6 +19,7 @@ function Hab() {
         <div className="roomsContainer">
             {
                 rooms.map(r => {
+                // return <Link to={`hab/type/${r.id}`} className={`room ${r.type} width-${r.length}`}>
                 return <Link to={`hab/${r.type}/${r.id}`} className={`room ${r.type} width-${r.length}`}>
                     <AspectRatio
                         ratio={`${r.length}x1`}
@@ -63,29 +34,22 @@ function Hab() {
   );
 }
 
-function HabRoom(){
-    const roomDefault = {
-        id: "0001",
-        title: "Mission Control", 
-        type: "missionControl",
-        length: 2
-    };
+function DefaultHabRoom(){
+    let {roomID} = useParams();
+    const [room, setRoom] = useState({id: "",title: "", type: "",length: 1})
 
-    const roomActions = [
-        {type: "missionControl", action: "Test"}
-    ]
-
-    let {roomid} = useParams();
-    const [room, setRoom] = useState(roomDefault)
-
+    useEffect(()=>{
+        setRoom(getRoomById(roomID));
+    },{})
 
     return (
         <div className={`page hab ${room.type}`}>
-            <h1>Hab Room id:{roomid}</h1>
+            <h1>Hab Room id:{roomID}</h1>
+            <h2>{room.title}</h2>
         </div>
       );
 }
 
 
 export default Hab;
-export {HabRoom};
+export {DefaultHabRoom};
