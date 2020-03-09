@@ -17,9 +17,8 @@ function Garage() {
         <h3>Room ID: {room.id}</h3>
         {room.roverId}
         {
-            typeof room.roverId === "undefined" ? "No Rover" : "Show Rover" 
+            typeof room.roverId === "undefined" ? <>No Rover <NewRover garageID={roomID}/></> : "Show Rover" 
         }
-        <NewRover/>
     </div>
   );
 }

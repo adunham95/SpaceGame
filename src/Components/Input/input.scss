@@ -1,0 +1,49 @@
+.formField {
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    position: relative;
+    padding: 10px 5px;
+    display: flex;
+    margin-top: 10px;
+    label{
+        background: var(--background);
+        font-size: 0.9em;
+        top: -0.7em;
+        position: absolute;
+        left: 0.5em;
+        padding: 0 3px;
+        &.description{
+            position: relative;
+            top: 0;
+            left: 0;
+            display: block;
+            padding-left: 10px;
+        }
+    }
+    input, select{
+        width: 100%;
+        background: transparent;
+        border: none;
+        &[type="checkbox"]{
+            width: auto;
+        }
+    }
+    & + .formField{
+        margin-top: 20px;
+    }
+    &.button{
+        border: none;
+        background: var(--primary);
+        padding: 0;
+        button{
+            text-align: center;
+            padding: 10px 5px;
+            color: var(--text-onPrimary);
+            text-align: center;
+            width: 100%;
+        }
+    }
+    &.error{
+        border-color: red;
+    }
+}
