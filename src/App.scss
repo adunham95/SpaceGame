@@ -3,6 +3,11 @@ $headerHeight: 80px;
 @import "Styles/vars";
 @import "Styles/modal";
 
+body{
+  @import url('https://fonts.googleapis.com/css?family=Exo+2&display=swap');
+  font-family: 'Exo 2', sans-serif;
+}
+
 .dark-theme{
   --primary: #245be9;
   --primaryDark: #173582;
@@ -26,4 +31,31 @@ $headerHeight: 80px;
   background: var(--background);
   color: var(--text-onBackground);
   min-height: 100vh;
+}
+
+.header{
+  background: var(--primary);
+  color: var(--text-onPrimary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 2px 2px 3px var(--onHover);
+}
+
+.nav{
+  background: var(--primary);
+  color: var(--text-onPrimary);
+  box-shadow: 2px 2px 3px var(--onHover);
+  ul{
+    display: flex;
+    li{
+      padding: 5px;
+      color: var(--text-onPrimary);
+      a{
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  }
 }

@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom"
 
 function Header() {
+    const [sol, setSol] = useState(0);
+
   return (
-    <div>
+    <div className="header">
         <h1>Space Game</h1>
+        <div>
+            Sol {sol}
+        </div>
     </div>
   )
 }
 
 function Nav() {
     return (
-        <nav>
+        <nav className="nav flex">
             <ul>
                 <li>
                     <Link to="/">Captains Log</Link>
