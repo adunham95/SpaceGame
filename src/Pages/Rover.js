@@ -1,21 +1,29 @@
 import React, {useState, useEffect} from 'react';
 import "./PageStyles/rover.scss";
 import {useParams} from "react-router-dom";
-import {getRovers} from "../Functions/roverDB";
+import {getRovers, newRover, getRoverByID} from "../Functions/roverDB";
 import {roverTypes} from "../Data/RoverStuff"
 import Input, {Submit, Select} from "../Components/Input/input";
 
-function Rover() {
-  let {roverID} = useParams();
-  const [rover, setRover] = useState({id:"",name:""});
+function Rover(roverID) {
+  // let {roverID} = useParams();
+  const [rover, setRover] = useState({id:"",name:"", slots: 0, slotsUsed:0, slotsOnRover: []});
 
   useEffect(()=>{
+    console.log(roverID);
+    console.log(getRoverByID(roverID.id));
+    setRover(getRoverByID(roverID.id));
     //   setRoom(getRoverById(roverID));
   },{})
 
   return (
     <div className="page rover">
-        <h1>Name {rover.name}</h1>
+        <h1>{rover.name}</h1>
+        <p>Slots Avalible {rover.slots - rover.slotsUsed}</p>
+        <p>Total Slots {rover.slots}</p>
+        <div>
+
+        </div>
     </div>
   );
 }
@@ -33,10 +41,12 @@ function NewRover({garageID}) {
     }
 
     const createRover = (e) =>{
-        e.preventDefault();
-        console.log("rover name", roverName);
-        console.log("Rover Type", roverType);
-        console.log("garageID", garageID)
+      e.preventDefault();
+      console.log("rover name", roverName);
+      console.log("Rover Type", roverType);
+      console.log("garageID", garageID);
+
+      newRover({typeID: roverType.id, name: roverName, garageID});
     }
 
     return (

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {getRoomById} from "../../Functions/habDB";
 import {useParams} from "react-router-dom";
-import { NewRover } from '../Rover';
+import Rover, { NewRover } from '../Rover';
 
 function Garage() {
   let {roomID} = useParams();
@@ -17,7 +17,7 @@ function Garage() {
         <h3>Room ID: {room.id}</h3>
         {room.roverId}
         {
-            typeof room.roverId === "undefined" ? <>No Rover <NewRover garageID={roomID}/></> : "Show Rover" 
+            typeof room.roverID === "undefined" ?  <NewRover garageID={roomID}/> : <Rover id={room.roverID} /> 
         }
     </div>
   );

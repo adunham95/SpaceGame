@@ -9,6 +9,12 @@ export const roverTypes = [
 ]
 
 export const upgrades = [
-    {name: "autonomous"},
-    {name: "hitch"}
+    {name: "Autonomous"},
+    {name: "Hitch"}
+]
+
+export const roverSlots = [
+    {slot_id: "crewCab", blockName: "Crew Cab", seats: 4, slotCost: 2, storage: 0},
+    {slot_id: "truckBed", blockName: "Truck Bed", seats: 0, slotCost: 2, storage: 4},
+    {slot_id: "mobileHab", blockName: "Mobile Hab", seats: 1, slotCost:4, storage: 3},
 ]
