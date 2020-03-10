@@ -26,7 +26,6 @@ function Hab() {
   return (
     <div className="page hab">
         <h1>Hab</h1>
-        <span>Testing</span>
         <div className="roomsContainer">
             {
                 rooms.map(r => {
