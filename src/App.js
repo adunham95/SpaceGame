@@ -6,7 +6,9 @@ import {ScrollToTop, Header, Nav} from "./Components/index"
 import MissionControl from './Pages/HabRooms/MissionControl';
 import Garage from './Pages/HabRooms/Garage';
 import Hab, {DefaultHabRoom, NewHabRoom} from './Pages/Hab';
-import Rover, {NewRover} from "./Pages/Rover"
+import Rover, {NewRover} from "./Pages/Rover";
+import Settings from './Pages/Settings';
+
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function ModalSwitch(){
     <div>
       <Switch location={background || location}>
         <Route exact path="/" children={<CaptainsLog/>} />
+        <Route exact path="/settings" children={<Settings/>} />
         
         <Route exact path="/hab" children={<Hab />} />
         <Route path="/hab/new" children={<NewHabRoom/>} />

@@ -20,6 +20,7 @@ function Nav() {
             <ul>
                 <li><Link to="/">Captains Log</Link></li>
                 <li><Link to="/hab">Hab</Link></li>
+                <li><Link to="/settings">Settings</Link></li>
             </ul>
       </nav>
     )
