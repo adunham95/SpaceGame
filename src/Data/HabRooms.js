@@ -6,7 +6,7 @@ export const habRooms = [
     {name: "Garden", type: "garden", color: "#219653"},
     {name: "Recreation", type: "recreation", color: "lightBlue"},
     {name: "Mission Control", type: "missionControl", color: "#828282"},
-    {name: "Warehouse", type: "warehouse", color: "lightBlue"},
-    {name: "Workshop", type: "workshop", color: "lightBlue"},
+    {name: "Warehouse", type: "warehouse", color: "#796a6af2"},
+    {name: "Workshop", type: "workshop", color: "#BCAA99"},
     {name: "Communications", type: "comm", color: "#828282"},
 ]
