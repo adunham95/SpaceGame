@@ -27,11 +27,11 @@ export const upgrades = [
     {name: "Winch"}
 ]
 
-export const roverSlots = [
-    {slot_id: "crewCab", blockName: "Crew Cab", seats: 4, slotCost: 2},
-    {slot_id: "truckBed", blockName: "Truck Bed", slotCost: 2, storage: 4},
-    {slot_id: "mobileHab", blockName: "Mobile Hab", seats: 1, slotCost:4, storage: 3},
-    {slot_id: "battery_s", blockName: "Small Battery", slotCost:1, energy: 5},
-    {slot_id: "battery_m", blockName: "Medium Battery", slotCost:2, energy: 15},
-    {slot_id: "battery_l", blockName: "Large Battery", slotCost:3, energy: 30},
+export const roverModules = [
+    {modules_id: "crewCab", blockName: "Crew Cab", seats: 4, slotCost: 2},
+    {modules_id: "truckBed", blockName: "Truck Bed", slotCost: 2, storage: 4},
+    {modules_id: "mobileHab", blockName: "Mobile Hab", seats: 1, slotCost:4, storage: 3},
+    {modules_id: "battery_s", blockName: "Small Battery", slotCost:1, energy: 5},
+    {modules_id: "battery_m", blockName: "Medium Battery", slotCost:2, energy: 15},
+    {modules_id: "battery_l", blockName: "Large Battery", slotCost:3, energy: 30},
 ]

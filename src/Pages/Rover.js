@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import "./PageStyles/rover.scss";
 import {useParams} from "react-router-dom";
 import {getRovers, newRover, getRoverByID} from "../Functions/roverDB";
-import {roverTypes} from "../Data/RoverStuff"
+import {roverTypes, roverModules} from "../Data/RoverStuff"
 import Input, {Submit, Select} from "../Components/Input/input";
 import { BatteryLevel } from '../Components';
 
@@ -76,6 +76,44 @@ function NewRover({garageID}) {
     );
   }
 
+function NewRoverModule(){
+
+  const [module, setModule] = useState({});
+
+  const newModule = (e) =>{
+    e.preventDefault();
+    console.log(module);
+  }
+
+  const handleModuleChange = (e) =>{
+    console.log(e);
+    let i = roverModules.findIndex(r => r.modules_id === e);
+    setModule(roverModules[i]);
+
+  }
+
+  return(
+    <div>
+      <h2>Create Module</h2>
+      <form onSubmit={(e)=>{newModule(e)}}>
+        <Select
+        id="module"
+        label="Module"
+        onChange={(e)=>handleModuleChange(e)}>
+          <option value="">Select Module</option>
+          {
+            roverModules.map(m =>{
+              return <option value={m.modules_id}>{m.blockName}</option>
+            })
+          }
+        </Select>
+        <Submit>Build</Submit>
+      </form>
+    </div>
+  )
+
+}
+
 
 export default Rover;
-export {NewRover};
+export {NewRover, NewRoverModule};

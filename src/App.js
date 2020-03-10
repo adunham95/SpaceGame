@@ -8,6 +8,7 @@ import Garage from './Pages/HabRooms/Garage';
 import Hab, {DefaultHabRoom, NewHabRoom} from './Pages/Hab';
 import Rover, {NewRover} from "./Pages/Rover";
 import Settings from './Pages/Settings';
+import Workshop, {WorkshopBuilder} from "./Pages/HabRooms/Workshop";
 
 
 function App() {
@@ -39,14 +40,14 @@ function ModalSwitch(){
         <Route path="/hab/new" children={<NewHabRoom/>} />
         <Route path="/hab/missionControl/:roomID" children={<MissionControl/>} />
         <Route path="/hab/garage/:roomID" children={<Garage/>} />
+        <Route path="/hab/workshop/:roomID" children={<Workshop/>} />
         <Route path="/hab/:roomType/:roomID" children={<DefaultHabRoom />} />
 
         <Route path="/rover/:roverID" children={<Rover/>}/>
       </Switch>
 
       {/* Show the modal when a background page is set */}
-      {background && <Route path="/rover/new" children={<NewRover/>} />}
-      {background && <Route path="/rover/:roverID" children={<Rover/>} />}
+      {/* {background && <Route path="/rover/new" children={<NewRover/>} />} */}
     </div>
   );
   

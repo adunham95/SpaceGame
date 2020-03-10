@@ -1,6 +1,6 @@
 import { generateID } from "./functions";
 import { updateRoomById} from "./habDB";
-import { roverTypes, roverSlots } from "../Data/RoverStuff";
+import { roverTypes, roverSlots, roverModules } from "../Data/RoverStuff";
 
 function saveRoverDB(roverList){
     localStorage.setItem("rover",JSON.stringify(roverList));
@@ -29,9 +29,9 @@ export function getRoverByID(id){
     
     //Add the slots
     rover.slotsOnRover = rover.slotsOnRover.map(s => {
-        let slot = roverSlots.find(rs => rs.slot_id === s.slot_id);
-        slotsUsed += slot.slotCost;
-        return {...s, ...slot} 
+        let module = roverModules.find(rs => rs.module_id === s.slot_id);
+        slotsUsed += module.slotCost;
+        return {...s, ...module} 
     });
 
     //Get the index of rover types
@@ -62,4 +62,8 @@ export function newRover({typeID, name, garageID}={}){
     
     rovers.push(newRover);
     saveRoverDB(rovers);
+}
+
+export function newRoverModule({module_type}={}){
+    
 }
