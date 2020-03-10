@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./_DisplayCompoents.scss"
 
 const Chip = ({title, value="", className}) => {
@@ -31,4 +31,23 @@ const AspectRatio = (props) => {
 
 };
 
-export {Chip, AspectRatio};
+const BatteryLevel = ({charge}) =>{
+
+    const [batteryColor, setBatteryColor] = useState("green");
+
+    useEffect(()=>{
+        console.log(charge);
+        if(charge === 100){setBatteryColor("green")}
+        else if(charge > 25){setBatteryColor("green")}
+        else if(charge > 10){setBatteryColor("#e5e505")}
+        else if(charge > 0){setBatteryColor("#e91717")}
+    },[charge])
+
+    return(
+        <div className={`battery`} data-charge={charge} style={{"--batteryColor":batteryColor}}>
+            <span className={`battery-level`} style={{width:`${charge}%`}}></span>
+        </div>
+    ) 
+}
+
+export {Chip, AspectRatio, BatteryLevel};
