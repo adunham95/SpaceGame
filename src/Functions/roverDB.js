@@ -26,6 +26,7 @@ export function getRoverByID(id){
     //Get the rover
     let rover = allRovers[getRoverIndexById(id)];
     let slotsUsed = 0;
+    
     //Add the slots
     rover.slotsOnRover = rover.slotsOnRover.map(s => {
         let slot = roverSlots.find(rs => rs.slot_id === s.slot_id);
@@ -35,15 +36,11 @@ export function getRoverByID(id){
 
     //Get the index of rover types
     let roverTypeIndex = roverTypes.findIndex(t => {
-        return t.id === rover.typeID
+        return t.type_id === rover.typeID
     });
 
-    let selectedRoverType = roverTypes[roverTypeIndex];
-    selectedRoverType.typeName = selectedRoverType.name;
-    selectedRoverType.typeID = selectedRoverType.id;
-
     //Merge the rover type object and the rover object
-    return {...selectedRoverType,...rover, slotsUsed};
+    return {...roverTypes[roverTypeIndex],...rover, slotsUsed};
 }
 
 export function newRover({typeID, name, garageID}={}){

@@ -36,7 +36,7 @@ function NewRover({garageID}) {
   
     const handleRoverTypeChange = (e) =>{
         console.log(e);
-        let i = roverTypes.findIndex(r => r.id === e);
+        let i = roverTypes.findIndex(r => r.type_id === e);
         setRoverType(roverTypes[i]);
     }
 
@@ -46,7 +46,7 @@ function NewRover({garageID}) {
       console.log("Rover Type", roverType);
       console.log("garageID", garageID);
 
-      newRover({typeID: roverType.id, name: roverName, garageID});
+      newRover({typeID: roverType.type_id, name: roverName, garageID});
     }
 
     return (
@@ -65,7 +65,7 @@ function NewRover({garageID}) {
                         <option value="">Select Rover Type</option>
                 {
                     roverTypes.map(rO => {
-                        return <option value={rO.id}>{rO.name}</option>
+                        return <option value={rO.type_id}>{rO.type_name}</option>
                     })
                 }
             </Select>
