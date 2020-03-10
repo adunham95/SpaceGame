@@ -4,21 +4,22 @@ import {useParams} from "react-router-dom";
 import {getRovers, newRover, getRoverByID} from "../Functions/roverDB";
 import {roverTypes} from "../Data/RoverStuff"
 import Input, {Submit, Select} from "../Components/Input/input";
+import { BatteryLevel } from '../Components';
 
-function Rover(roverID) {
+function Rover({roverID, charging=false}) {
   // let {roverID} = useParams();
-  const [rover, setRover] = useState({id:"",name:"", slots: 0, slotsUsed:0, slotsOnRover: []});
+  const [rover, setRover] = useState({id:"",name:"", slots: 0, slotsUsed:0, charge: 100});
 
   useEffect(()=>{
     console.log(roverID);
-    console.log(getRoverByID(roverID.id));
-    setRover(getRoverByID(roverID.id));
-    //   setRoom(getRoverById(roverID));
+    console.log(getRoverByID(roverID));
+    setRover(getRoverByID(roverID));
   },{})
 
   return (
     <div className="page rover">
         <h1>{rover.name}</h1>
+        <BatteryLevel charge={rover.charge}/>
         <p>Slots Avalible {rover.slots - rover.slotsUsed}</p>
         <p>Total Slots {rover.slots}</p>
         <div>

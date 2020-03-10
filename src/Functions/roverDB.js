@@ -53,7 +53,8 @@ export function newRover({typeID, name, garageID}={}){
         typeID: typeID,
         name, 
         garageID,
-        slotsOnRover: []
+        slotsOnRover: [],
+        charge: 100,
     };
 
     //Update the garage to set the rover
