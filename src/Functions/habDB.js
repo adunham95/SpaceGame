@@ -1,4 +1,6 @@
-import {habRooms} from "../Data/HabRooms"
+import {habRooms} from "../Data/HabRooms";
+import { generateID } from "./functions";
+
 
 export function getHabRooms(){
     if(JSON.parse(localStorage.getItem("hab")) === null){return []}
@@ -43,6 +45,17 @@ export function getHabRoomTypes(){
     return habRooms;
 }
 
-export function createRoom({id, type, title, length=1}={}){
+export function createRoom({type, title, length=1}={}){
+    console.log("Creating a room");
 
+    let newRoom = {
+        id: generateID(4),
+        type, 
+        title,
+        length,
+    };
+
+    let rooms = getHabRooms();
+    rooms.push(newRoom);
+    saveHabDB(rooms);
 }

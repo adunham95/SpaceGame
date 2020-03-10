@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import "./PageStyles/hab.scss";
 import {AspectRatio} from "../Components/index";
 import {Link, useParams} from "react-router-dom";
-import {getHabRooms, getRoomById, getHabRoomTypes} from "../Functions/habDB";
+import {getHabRooms, getRoomById, getHabRoomTypes, createRoom} from "../Functions/habDB";
+import Input, {Submit, Select} from "../Components/Input/input";
 
 function Hab() {
     const [rooms, setRooms] = useState([]);
@@ -41,6 +42,14 @@ function Hab() {
                 </Link>
                 })
             }
+            <Link to={`hab/new`} 
+                    className={`room width-1`} 
+                    style={{"--roomColor":"green"}}>
+                    <AspectRatio
+                        ratio={`1x1`}
+                    ></AspectRatio>
+                    <h3>New Room</h3>
+                </Link>
         </div>
     </div>
   );
@@ -62,6 +71,48 @@ function DefaultHabRoom(){
       );
 }
 
+function NewHabRoom(){
+    const [roomName, setRoomName] = useState("");
+    const [roomType, setRoomType] = useState("")
+
+    const handleRoomTypeChange = (e) =>{
+        console.log(e);
+        setRoomType(getHabRoomTypes().find(r => r.type === e));
+    }
+
+    const saveRoom = (e) =>{
+        e.preventDefault();
+        console.log("Room name", roomName);
+        console.log("Room Type", roomType);
+
+        createRoom({type: roomType.type, title: roomName, length:1})
+    }
+
+    return (
+        <div className={`page hab newRoom`}>
+            <h1>New Room</h1>
+            <form onSubmit={(e)=>{saveRoom(e)}}>
+                <Input 
+                    id="roomName"
+                    label="Room Name"
+                    onChange={(e)=>setRoomName(e)}
+                />
+                <Select id="roverType"
+                        label="Rover Type"
+                        onChange={(e)=>handleRoomTypeChange(e)}>
+                            <option value="">Select Room Type</option>
+                    {
+                        getHabRoomTypes().map(rO => {
+                            return <option value={rO.type}>{rO.name}</option>
+                        })
+                    }
+                </Select>
+                <Submit>Save</Submit>
+            </form>
+        </div>
+      );
+}
+
 
 export default Hab;
-export {DefaultHabRoom};
+export {DefaultHabRoom, NewHabRoom};
