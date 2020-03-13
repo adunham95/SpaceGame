@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import "./PageStyles/rover.scss";
 import {useParams} from "react-router-dom";
-import {getRovers, newRover, getRoverByID} from "../Functions/roverDB";
+import {getRovers, newRover, getRoverByID, newRoverModule} from "../Functions/roverDB";
 import {roverTypes, roverModules} from "../Data/RoverStuff"
 import Input, {Submit, Select} from "../Components/Input/input";
 import { BatteryLevel } from '../Components';
@@ -9,6 +9,7 @@ import { BatteryLevel } from '../Components';
 function Rover({roverID, charging=false}) {
   // let {roverID} = useParams();
   const [rover, setRover] = useState({id:"",name:"", slots: 0, slotsUsed:0, charge: 100});
+  const [modules, setModules] = useState([]);
 
   useEffect(()=>{
     console.log(roverID);
@@ -23,7 +24,7 @@ function Rover({roverID, charging=false}) {
         <p>Slots Avalible {rover.slots - rover.slotsUsed}</p>
         <p>Total Slots {rover.slots}</p>
         <div>
-
+          <h3>Modules</h3>
         </div>
     </div>
   );
@@ -83,6 +84,8 @@ function NewRoverModule(){
   const newModule = (e) =>{
     e.preventDefault();
     console.log(module);
+
+    newRoverModule({module_id: module.modules_id});
   }
 
   const handleModuleChange = (e) =>{

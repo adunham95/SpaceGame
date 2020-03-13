@@ -6,8 +6,20 @@ function saveRoverDB(roverList){
     localStorage.setItem("rover",JSON.stringify(roverList));
 }
 
+function saveModuleDB(moduleList){
+    localStorage.setItem("roverModules",JSON.stringify(moduleList));
+}
+
+export function getModules(){
+    console.log(localStorage.getItem("roverModules") !== null);
+    //If rover list does not exist return empty array
+    if(localStorage.getItem("roverModules") === null){return []}
+    else{return JSON.parse(localStorage.getItem("roverModules"))};
+}
+
 export function getRovers(){
     console.log(localStorage.getItem("rover") !== null);
+    //If rover list does not exist return empty array
     if(localStorage.getItem("rover") === null){return []}
     else{return JSON.parse(localStorage.getItem("rover"))};
 }
@@ -64,6 +76,15 @@ export function newRover({typeID, name, garageID}={}){
     saveRoverDB(rovers);
 }
 
-export function newRoverModule({module_type}={}){
-    
+export function newRoverModule({module_id}={}){
+    let modules = getModules();
+
+    let newModule = {
+        id: generateID(4),
+        module_id
+    };
+
+    modules.push(newModule);
+
+    saveModuleDB(modules);
 }
