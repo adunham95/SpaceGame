@@ -9,6 +9,7 @@ import Hab, {DefaultHabRoom, NewHabRoom} from './Pages/Hab';
 import Rover, {NewRover} from "./Pages/Rover";
 import Settings from './Pages/Settings';
 import Workshop, {WorkshopBuilder} from "./Pages/HabRooms/Workshop";
+import Garden from './Pages/HabRooms/Gardens';
 
 
 function App() {
@@ -41,6 +42,7 @@ function ModalSwitch(){
         <Route path="/hab/missionControl/:roomID" children={<MissionControl/>} />
         <Route path="/hab/garage/:roomID" children={<Garage/>} />
         <Route path="/hab/workshop/:roomID" children={<Workshop/>} />
+        <Route path="/hab/garden/:roomID" children={<Garden/>} />
         <Route path="/hab/:roomType/:roomID" children={<DefaultHabRoom />} />
 
         <Route path="/rover/:roverID" children={<Rover/>}/>

@@ -1,0 +1,15 @@
+.gardenContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.plot{
+    width: 50%;
+    .ratioContainer{
+        &-inner{
+            height: 100%;
+            background: #523217;
+            width: 100%;
+        }
+    }
+}
